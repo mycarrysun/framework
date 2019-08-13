@@ -244,6 +244,13 @@ trait FormatsMessages
             if ($line = $this->getAttributeFromTranslations($name)) {
                 return $line;
             }
+
+            $parts = explode('.', $name);
+            $name = array_pop($parts);
+
+            if ($line = $this->getAttributeFromTranslations($name)) {
+                return $line;
+            }
         }
 
         // When no language line has been specified for the attribute and it is also
